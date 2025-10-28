@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShareShelf</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+</head>
+<body>
+<header>
+  <h1>ShareShelf</h1>
+  <nav>
+    <a href="#donate">Donate</a>
+    <a href="#volunteer">Join as Volunteer</a>
+    <a href="#records">Registered Lists</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Sharing Hope. Restoring Lives.</h2>
+  <p>Give unused items. Help communities in need.</p>
+</section>
+
+<section id="donate" class="card">
+<h2>Donate Items</h2>
+<form id="donationForm">
+  <label>Name</label><input type="text" id="d_name" required>
+
+  <label>What item are you donating?</label>
+  <input type="text" id="d_item" required>
+
+  <label>Category</label>
+  <select id="d_category">
+    <option>Clothes</option>
+    <option>Books</option>
+    <option>Utensils</option>
+    <option>Bags</option>
+    <option>Others</option>
+  </select>
+
+  <label>Pickup or Drop-off?</label>
+  <select id="d_method" onchange="toggleAddress()">
+    <option>Home Pickup</option>
+    <option>Drop-off</option>
+  </select>
+
+  <div id="addressField">
+    <label>Address for Pickup</label>
+    <textarea id="d_address"></textarea>
+  </div>
+  <p id="dropNote" style="display:none;">Drop-off Location: Nearby Community Hall, 9:00AM - 7:00PM</p>
+
+  <button type="submit">Submit Donation</button>
+</form>
+</section>
+
+<section id="volunteer" class="card">
+<h2>Join as Volunteer</h2>
+<form id="volunteerForm">
+  <label>Name</label><input type="text" id="v_name" required>
+  <label>Phone</label><input type="text" id="v_phone" required>
+  <label>Upload ID Proof</label><input type="file" id="v_id" accept="image/*,application/pdf" required>
+  <button type="submit">Register</button>
+</form>
+</section>
+
+<section id="records" class="card">
+<h2>Registered Lists</h2>
+<div id="recordsContainer"></div>
+</section>
+
+<footer>RJMOS © 2025</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
